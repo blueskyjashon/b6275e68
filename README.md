@@ -1,7 +1,26 @@
+<div align="center">
+
+# sing-box多协议代理工具
+
+![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white)
+![Fedora](https://img.shields.io/badge/Fedora-294172?logo=fedora&logoColor=white)
+![Alpine](https://img.shields.io/badge/Alpine-0D597F?logo=alpinelinux&logoColor=white)
+![Red Hat](https://img.shields.io/badge/Red%20Hat-EE0000?logo=redhat&logoColor=white)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/node-sbx)
+[![PyPI](https://img.shields.io/badge/PyPI-3775A9?logo=pypi&logoColor=white)](https://pypi.org/project/singbox)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?&logo=docker&logoColor=white)](https://hub.docker.com/r/eooce/sbx)
+
+sing-box是一个强大的代理脚本，多种环境下使用。它支持多种代理协议（VLESS-reality-verison、VMess-ws-tls(tunnel)、Hysteria2、Tuic），并集成了哪吒(v0/v1)探针功能。
+
+---
+
+Telegram交流反馈群组：https://t.me/eooceu
+
+</div>
+
+
 # 1：vps一键命令，已集成到ssh工具箱中
-* 一键四协议安装脚本，支持纯v6 VPS，支持订阅，默认解锁GPT和奈飞
-* 最好用的四协议组合vless-reality|vmess-ws-tls(argo)|hysteria2|tuic5
-* 支持的系统：Ubuntu/Debian/CentOS/Alpine/Fedora/Rocky/Almalinux/kail
 * 注意nat小鸡安装完一键脚本之后需手动更改订阅端口和节点端口在允许范围内的端口，否则节点不通
 * 可在脚本前添加PORT变量，随脚本一起运行，即可定义端口，需确保PORT端口后面的3个端口可用，否则节点不通
 * 可选环境变量PORT CFIP CFPORT
@@ -10,16 +29,27 @@
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/eooce/sing-box/main/sing-box.sh)
 ```
-## vps带端口变量运行示列
-PORT=开放的端口 确保后面3个端口可用 CFIP为优选IP或优选域名，CFPORT为优选ip或优选域名对应的端口
+## vps带端口变量运行示列(NAT机)
+PORT=开放的端口 确保后面有3个端口可用
 ```
-PORT=你的端口 CFIP=www.visa.com.tw CFPORT=443 bash <(curl -Ls https://raw.githubusercontent.com/eooce/sing-box/main/sing-box.sh)
+PORT=你的端口 bash <(curl -Ls https://raw.githubusercontent.com/eooce/sing-box/main/sing-box.sh)
 ```
 
 
 ## ssh综合工具箱一键脚本
 ```
-curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
+bash <(curl -Ls ssh_tool.eooce.com)
+```
+## 快捷指令和命令行参数
+快捷指令：sb
+```
+用法: [sb或脚本] [参数], 示例: sb -c(查看节点信息)
+
+  -i  --install     无交互安装sing-box
+  -c  --check       查看节点信息和订阅链接
+  -r  --restart     重新获取argo临时隧道并更新到订阅
+  -u  --uninstall   无交互卸载sing-box（含 nginx)
+  -h  --help        显示此帮助信息
 ```
 
 # 2：Serv00|CT8一键安装脚本,集成哪吒探针,全自动安装
